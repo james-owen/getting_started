@@ -1,31 +1,30 @@
-#gives number of coins (25c 10c 5c 1c) to make a float input
+# gives number of coins (25c 10c 5c 1c) to make a float input
 import cs50
 
-#get positive float input
+# get positive float input
 while True:
     change = cs50.get_float("How much change?")
     if change > 0:
         break
 
-#input in cents, rounded to nearest cent
+# input in cents, rounded to nearest cent
 cents = round(100 * change)
 
-#declare counter (# of coins)
 count = 0
 
-#quarters, floor-divide by 25 for count, remainder is what's left!
+# quarters, floor-divide by 25 for count, remainder is what's left!
 count += (cents // 25)
 cents = cents % 25
 
-#dimes
+# dimes
 count += (cents // 10)
 cents = cents % 10
 
-#nickels
+# nickels
 count += (cents // 5)
 cents = cents % 5
 
-#pennies, no need to divide here.
+# pennies, no need to divide here.
 count += cents
 
 print(f"count is {count}")
